@@ -1,3 +1,5 @@
+
+commit:
 ---
 title: "Prac 1"
 author: "Dylan Wood"
@@ -49,3 +51,4 @@ beta_hat
 coef(lm(dist ~ speed, data = cars))
 
 ```
+
