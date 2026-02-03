@@ -1,0 +1,51 @@
+---
+title: "Prac 1"
+author: "Dylan Wood"
+format: pdf
+editor: visual
+---
+
+```{r Airquality}
+#|echo: false
+
+data(airquality)
+
+rows_with_na <- c()
+
+for (i in 1:nrow(airquality)) {
+  for (j in 1:ncol(airquality)) {
+    if (is.na(airquality[i, j])) {
+      rows_with_na <- c(rows_with_na, i)
+      break   
+    }
+  }
+}
+
+
+
+min(airquality$Temp)
+max(airquality$Temp)
+sd(airquality$Temp)
+mean(airquality$Temp)
+
+min(na.omit(airquality$Ozone))
+max(na.omit(airquality$Ozone))
+sd(na.omit(airquality$Ozone))
+mean(na.omit(airquality$Ozone))
+
+```
+
+```{r Cars}
+#|echo: false
+
+data(cars)
+
+X <- model.matrix(dist ~ speed, data = cars)
+Y <- as.matrix(cars$dist)
+
+beta_hat <- solve(t(X) %*% X) %*% t(X) %*% Y
+beta_hat
+
+coef(lm(dist ~ speed, data = cars))
+
+```
